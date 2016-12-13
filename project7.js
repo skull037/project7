@@ -43,7 +43,7 @@ function drawTriangle(color,x, y, base) {
   screen.appendChild(triangle)
 }
 function clearBoard(){
-  location.reload()
+screen.innerHTML = '';
 }
 
 // Step 3: Event listeners
