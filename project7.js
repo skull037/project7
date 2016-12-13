@@ -4,8 +4,8 @@ var shouldDraw = false;
 //default rainbow color
 var rainbowColor = 0;
 //custom values
-var CustomColor = document.getElementById("CustomColor").value;
-var CustomSize = document.getElementById("CustomSize").value;
+var CustomColor = document.getElementById("CustomColor");
+var CustomSize = document.getElementById("CustomSize");
 // utility function
 function transformPoint(event) {
   var pt = screen.createSVGPoint()
@@ -36,16 +36,22 @@ function drawCircle(color,r,x,y) {
 }
 function drawTriangle(color,x, y, base) {
   var pts = "" + (x+ base*2) + "," + (y+ base*2) + " " + (x - base*2) + "," + (y+base*2) + " " + (x) + "," + (y - base*2)
-  console.log(pts)
   var triangle = document.createElementNS(namespace, "polygon")
   triangle.setAttribute("points", pts)
   triangle.setAttribute("fill", color)
   screen.appendChild(triangle)
 }
+
 function clearBoard(){
 screen.innerHTML = '';
 }
 
+function SetColor(){
+CustomColor.value = document.getElementById("CustomColorInput").value;
+}
+function SetSize(){
+CustomSize.value = document.getElementById("CustomSizeInput").value;
+}
 // Step 3: Event listeners
 document.addEventListener("mousedown", function(e) {
     var pt = transformPoint(e, screen)
