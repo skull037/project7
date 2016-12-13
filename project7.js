@@ -30,12 +30,25 @@ function drawCircle(color,r,x,y) {
   newcircle.setAttribute("r", r)
   screen.appendChild(newcircle);
 }
-
+function clearBoard(){
+screen.parentNode.replaceChild(screen.cloneNode(false), screen);
+}
 
 // Step 3: Event listeners
 document.addEventListener("mousedown", function(e) {
     var pt = transformPoint(e, screen)
     shouldDraw = true
+    var colorSelect = (document.getElementById("colorSelect").value)
+      var shapeSelect = (document.getElementById("shapeSelect").value)
+          var sizeSelect = (document.getElementById("sizeSelect").value)
+      var pt = transformPoint(e, screen)
+      if(shouldDraw == true){
+      if(shapeSelect == "square"){
+    drawRectangle(colorSelect,sizeSelect,pt.x,pt.y);
+      }else{
+    drawCircle(colorSelect,sizeSelect,pt.x,pt.y);
+      }
+    }
 })
 document.addEventListener("mouseup", function(e) {
     var pt = transformPoint(e, screen)
